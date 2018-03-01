@@ -1,0 +1,8 @@
+//http://www.programfaqs.com/faq/babel-will-not-compile-test-js-files-while-running-jest/
+{
+    "presets":["env","react"],
+    "plugins":[
+        "transform-class-properties",
+        "transform-object-rest-spread"    
+    ]
+}
