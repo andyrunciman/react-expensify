@@ -15,10 +15,6 @@ import moment from 'moment';
 
 const store = configureStore();
 
-store.dispatch(addExpense({description:'water bill',amount:10,createdAt:moment().add(3,'days').valueOf()}));
-store.dispatch(addExpense({description:'gas bill',amount:200,createdAt:moment().add(2,'days').valueOf()}));
-store.dispatch(addExpense({description:'rent',amount:1,createdAt:moment().add(1,'days').valueOf()}));
-
 //setTimeout(()=>{store.dispatch(setTextFilter('gas'));},3000)
 
 const jsx = (
