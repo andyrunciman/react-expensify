@@ -5,7 +5,7 @@ import {BrowserRouter,Route,Switch, Link, NavLink} from 'react-router-dom';
 import AppRouter from './routers/AppRouter';
 import './styles/style.scss';
 import configureStore from './store/configureStore';
-import {addExpense} from './actions/expenses';
+import {startSetExpenses} from './actions/expenses';
 import {setTextFilter} from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
 import { setTimeout } from 'timers';
@@ -23,4 +23,9 @@ const jsx = (
     <Provider store={store}><AppRouter/></Provider>
 );
 
-ReactDOM.render(jsx,document.getElementById('app'));
+ReactDOM.render(<p>loading</p>,document.getElementById('app'));
+
+store.dispatch(startSetExpenses()).then(()=>{
+    ReactDOM.render(jsx,document.getElementById('app'));
+});
+

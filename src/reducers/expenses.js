@@ -8,7 +8,6 @@ const expensesReducer = (state = expensesReducerDefaultState ,action) => {
             return action.id?state.filter(item=>item.id!==action.id):state;
         case 'EDIT_EXPENSE':
             //const expense = {...state.find(id=>id===action.id),...action.expense}
-            console.log('editing expense inside reducer',action.updates)
             return state.map((expense)=>{
                 if(expense.id === action.id){
                     return {
@@ -19,6 +18,8 @@ const expensesReducer = (state = expensesReducerDefaultState ,action) => {
                     return expense;
                 }
             });
+        case 'SET_EXPENSES':
+            return action.expenses;
         default:
             return state;
     }
