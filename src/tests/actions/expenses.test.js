@@ -1,4 +1,4 @@
-import {startAddExpense,addExpense,removeExpense,editExpense,setExpenses,startSetExpenses} from '../../actions/expenses';
+import {startAddExpense,addExpense,removeExpense,editExpense,setExpenses,startSetExpenses,startRemoveExpense} from '../../actions/expenses';
 import expenses from '../fixtures/expenses';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -139,4 +139,29 @@ test('should fetch the data from firebase',(done)=>{
         });
         done();
     })
+});
+
+test('should remove an item with a given id',(done)=>{
+    const store = createMockStore({});
+    const id = expenses[2].id;
+    store.dispatch(startRemoveExpense(id)).then(()=>{
+        const actions = store.getActions();
+        expect(actions[0]).toEqual({
+            type:'DELETE_EXPENSE',
+            id
+        });
+
+        return database.ref(`expenses/${id}`).once('value');
+    }).then((snapshot)=>{
+        expect(snapshot.val()).toBeFalsy();
+        done();
+    })
+});
+
+test('should not remove an item with a missing id',()=>{
+    
+});
+
+test('should not remove an item with an invalid id',()=>{
+    
 });
