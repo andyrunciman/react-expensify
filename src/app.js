@@ -10,7 +10,9 @@ import {setTextFilter} from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
 import { setTimeout } from 'timers';
 import moment from 'moment';
-
+import './firebase/firebase';
+//import './playground/promises';
+import './playground/redux-play';
 
 
 const store = configureStore();
