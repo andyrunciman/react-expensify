@@ -1,4 +1,4 @@
-import {startAddExpense,addExpense,removeExpense,editExpense,setExpenses,startSetExpenses,startRemoveExpense} from '../../actions/expenses';
+import {startAddExpense,addExpense,removeExpense,editExpense,setExpenses,startSetExpenses,startRemoveExpense,startEditExpense} from '../../actions/expenses';
 import expenses from '../fixtures/expenses';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -158,10 +158,21 @@ test('should remove an item with a given id',(done)=>{
     })
 });
 
-test('should not remove an item with a missing id',()=>{
-    
-});
-
-test('should not remove an item with an invalid id',()=>{
-    
+test('should edit an item with a given id',(done) => {
+    const store = createMockStore({});
+    const expense = expenses[1];
+    const id = expense.id;
+    const updates = {amount:10};
+    store.dispatch(startEditExpense(expense.id,updates)).then(()=>{
+        const actions = store.getActions();
+        expect(actions[0]).toEqual({
+            type:'EDIT_EXPENSE',
+            id,
+            updates
+        })
+        return database.ref(`expenses/${id}`).once('value');
+    }).then((snapshot)=>{
+        expect(snapshot.val().amount).toEqual(updates.amount);
+        done();
+    });
 });
