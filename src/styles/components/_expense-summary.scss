@@ -1,0 +1,19 @@
+.expense-summary{
+    width:100%;
+    background-color: $off-white;
+
+    &__box{
+        max-width:$max-width;
+        margin:0 auto;
+        padding: $l-size $s-size;
+    }
+
+    &__text{
+        font-size:3.2rem;
+        font-weight: 100;
+
+        & > span {
+            font-weight: 800;
+        }
+    }
+}

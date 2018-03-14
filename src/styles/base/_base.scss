@@ -19,3 +19,9 @@ body{
 .is-active{
     font-weight:bold;
 }
+
+.container{
+    padding: $l-size $s-size;
+    max-width: $max-width;
+    margin:0 auto;
+}

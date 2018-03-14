@@ -1,0 +1,21 @@
+.header{
+    width:100%;
+    background-color: $dark-blue;
+    &__box{
+        padding: $s-size;
+        height:7rem;
+        max-width: $max-width;
+        margin:0 auto;
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__heading{
+        font-size: 3.2rem;
+        color:white;
+        font-weight: 400;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+}

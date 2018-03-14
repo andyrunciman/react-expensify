@@ -1,0 +1,26 @@
+.expense-list-filter{
+    width:100%;
+    &__box{
+        padding: $l-size $s-size;
+        max-width: $max-width;
+        margin:0 auto;
+        display: flex;
+
+        @media (max-width:$desktop-breakpoint) {
+            flex-direction: column;
+        }
+        
+    }
+
+    &__item:not(:last-child){
+        border:1px solid #cacccd;
+        margin-right:$s-size;
+
+        @media (max-width:$desktop-breakpoint) {
+            margin-right:0;
+            margin-bottom: $s-size;
+        }
+
+    }
+   
+}

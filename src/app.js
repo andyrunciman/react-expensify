@@ -11,6 +11,7 @@ import getVisibleExpenses from './selectors/expenses';
 import { setTimeout } from 'timers';
 import moment from 'moment';
 import {firebase} from './firebase/firebase';
+import LoadingPage from './components/LoadingPage'
 //import './playground/promises';
 
 
@@ -30,7 +31,7 @@ const renderApp = () => {
     }
 };
 
-ReactDOM.render(<p>loading</p>,document.getElementById('app'));
+ReactDOM.render(<LoadingPage/>,document.getElementById('app'));
 
 
 //This always fires on refresh so is OK to use at startup.

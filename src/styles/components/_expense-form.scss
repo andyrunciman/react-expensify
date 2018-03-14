@@ -1,0 +1,16 @@
+.expense-form{
+    width:100%;
+    &__box{
+        padding: $l-size $s-size;
+        max-width: $max-width;
+        margin:0 auto;
+    }
+
+    &__form > *{
+        margin-bottom: $s-size;
+    } 
+}
+
+.input-item{
+    border:1px solid #cacccd;
+}

@@ -9,10 +9,13 @@ export const ExpensesSummary = ({numberOfExpenses,expensesTotal}) => {
     const expenseText = numberOfExpenses>1?'expenses':'expense';
     const formattedAmount = numeral(expensesTotal/100).format('$0,0.00');
     return (
-            <div>
-                <p>Viewing {numberOfExpenses} {expenseText} totalling {formattedAmount}</p>
-                <Link to="/create">Add Expense</Link>
+            <div className="expense-summary">
+                <div className="expense-summary__box">
+                    <p className="expense-summary__text u-margin-bottom-small ">Viewing <span>{numberOfExpenses}</span> {expenseText} totalling <span>{formattedAmount}</span></p>
+                    <Link className="btn btn--primary-link" to="/create">Add Expense</Link>
+                </div>
             </div>
+            
         );
 }
 
